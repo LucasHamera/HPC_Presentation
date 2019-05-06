@@ -6,6 +6,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="BenchmarkDotNet" Version="0.11.5" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\MatrixMultiplication.NormalSharp\MatrixMultiplication.NormalSharp.csproj" />
     <ProjectReference Include="..\MatrixMultiplication.Vector\MatrixMultiplication.Vector.csproj" />
   </ItemGroup>
