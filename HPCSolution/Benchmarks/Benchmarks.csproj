@@ -11,6 +11,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\MatrixMultiplication.NormalSharp\MatrixMultiplication.NormalSharp.csproj" />
+    <ProjectReference Include="..\MatrixMultiplication.NormalWrapper\MatrixMultiplication.NormalWrapper.csproj" />
+    <ProjectReference Include="..\MatrixMultiplication.SIMDWrapper\MatrixMultiplication.SIMDWrapper.csproj" />
     <ProjectReference Include="..\MatrixMultiplication.Vector\MatrixMultiplication.Vector.csproj" />
   </ItemGroup>
 
