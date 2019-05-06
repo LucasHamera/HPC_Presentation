@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Benchmarks", "Benchmarks\Be
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MatrixMultiplication.Vector", "MatrixMultiplication.Vector\MatrixMultiplication.Vector.csproj", "{D4DBCC16-DEB8-48DE-9F4E-F3AC9AC1D6F7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MatrixMultiplication.NormalSharp", "MatrixMultiplication.NormalSharp\MatrixMultiplication.NormalSharp.csproj", "{CA543075-CE3A-4B32-A5F4-BF40C40F752C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{D4DBCC16-DEB8-48DE-9F4E-F3AC9AC1D6F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D4DBCC16-DEB8-48DE-9F4E-F3AC9AC1D6F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D4DBCC16-DEB8-48DE-9F4E-F3AC9AC1D6F7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CA543075-CE3A-4B32-A5F4-BF40C40F752C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CA543075-CE3A-4B32-A5F4-BF40C40F752C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CA543075-CE3A-4B32-A5F4-BF40C40F752C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CA543075-CE3A-4B32-A5F4-BF40C40F752C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
