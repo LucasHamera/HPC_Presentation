@@ -12,5 +12,13 @@ namespace MatrixMultiplication.NormalWrapper
                 float* c, 
                 int matrix_size
             );
+
+        [DllImport(DLLName, CallingConvention = CallingConvention.Winapi)]
+        public static extern unsafe int parallel_multipy_r(
+            float* a,
+            float* b, 
+            float* c, 
+            int matrix_size
+        );
     }
 }
