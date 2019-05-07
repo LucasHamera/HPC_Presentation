@@ -7,7 +7,7 @@ namespace Benchmarks
     {
         static void Main(string[] args)
         {
-            var summary = BenchmarkRunner.Run<SharpMatrixMultiplicationBenchmark>();
+            var summary = BenchmarkRunner.Run<DLLMatrixMultiplicationBenchmark>();
 
             Console.ReadKey();
 

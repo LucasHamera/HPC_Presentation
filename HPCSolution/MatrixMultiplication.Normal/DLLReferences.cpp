@@ -1,7 +1,135 @@
 #include "DLLReferences.h"
 #include "Multiplication.h"
 
-int multipy_r(
+int multipy_1d_r(
+	const float* a, 
+	float* b, 
+	float* c, 
+	const int matrix_size
+)
+{
+	if (a == nullptr)
+		return 1;
+	if (b == nullptr)
+		return 2;
+	if (c == nullptr)
+		return 3;
+	if (matrix_size <= 0)
+		return 3;
+
+	try
+	{
+		multipy_1d(
+			a,
+			b,
+			c,
+			matrix_size
+		);
+	}
+	catch (...)
+	{
+		return 4;
+	}
+	return 0;
+}
+
+int multipy_1d_with_transpose_r(
+	const float* a,
+	float* b,
+	float* c,
+	const int matrix_size
+)
+{
+	if (a == nullptr)
+		return 1;
+	if (b == nullptr)
+		return 2;
+	if (c == nullptr)
+		return 3;
+	if (matrix_size <= 0)
+		return 3;
+
+	try
+	{
+		multipy_1d_with_transpose(
+			a,
+			b,
+			c,
+			matrix_size
+		);
+	}
+	catch (...)
+	{
+		return 4;
+	}
+	return 0;
+}
+
+int multipy_1d_with_transpose_and_unrolled_r(
+	const float* a,
+	float* b,
+	float* c, 
+	const int matrix_size
+)
+{
+	if (a == nullptr)
+		return 1;
+	if (b == nullptr)
+		return 2;
+	if (c == nullptr)
+		return 3;
+	if (matrix_size <= 0)
+		return 3;
+
+	try
+	{
+		multipy_1d_with_transpose_and_unrolled(
+			a,
+			b,
+			c,
+			matrix_size
+		);
+	}
+	catch (...)
+	{
+		return 4;
+	}
+	return 0;
+}
+
+int parallel_f_for_multipy_1d_r(
+	const float* a, 
+	float* b, 
+	float* c,
+	const int matrix_size
+)
+{
+	if (a == nullptr)
+		return 1;
+	if (b == nullptr)
+		return 2;
+	if (c == nullptr)
+		return 3;
+	if (matrix_size <= 0)
+		return 3;
+
+	try
+	{
+		parallel_f_for_multipy_1d(
+			a,
+			b,
+			c,
+			matrix_size
+		);
+	}
+	catch (...)
+	{
+		return 4;
+	}
+	return 0;
+}
+
+int parallel_s_for_multipy_1d_r(
 	const float* a,
 	float* b, 
 	float* c, 
@@ -19,7 +147,7 @@ int multipy_r(
 
 	try
 	{
-		multipy(
+		parallel_s_for_multipy_1d(
 			a,
 			b,
 			c,
@@ -33,14 +161,14 @@ int multipy_r(
 	return 0;
 }
 
-int parallel_multipy_r(
+int parallel_t_for_multipy_1d_r(
 	const float* a,
 	float* b,
 	float* c, 
 	const int matrix_size
 )
 {
-		if (a == nullptr)
+	if (a == nullptr)
 		return 1;
 	if (b == nullptr)
 		return 2;
@@ -51,7 +179,71 @@ int parallel_multipy_r(
 
 	try
 	{
-		parallel_multipy(
+		parallel_t_for_multipy_1d(
+			a,
+			b,
+			c,
+			matrix_size
+		);
+	}
+	catch (...)
+	{
+		return 4;
+	}
+	return 0;
+}
+
+int parallel_multipy_1d_with_transpose_r(
+	const float* a, 
+	float* b,
+	float* c, 
+	const int matrix_size
+)
+{
+	if (a == nullptr)
+		return 1;
+	if (b == nullptr)
+		return 2;
+	if (c == nullptr)
+		return 3;
+	if (matrix_size <= 0)
+		return 3;
+
+	try
+	{
+		parallel_multipy_1d_with_transpose(
+			a,
+			b,
+			c,
+			matrix_size
+		);
+	}
+	catch (...)
+	{
+		return 4;
+	}
+	return 0;
+}
+
+int parallel_multipy_1d_with_transpose_and_unrolled_r(
+	const float* a,
+	float* b, 
+	float* c, 
+	const int matrix_size
+)
+{
+	if (a == nullptr)
+		return 1;
+	if (b == nullptr)
+		return 2;
+	if (c == nullptr)
+		return 3;
+	if (matrix_size <= 0)
+		return 3;
+
+	try
+	{
+		parallel_multipy_1d_with_transpose_and_unrolled(
 			a,
 			b,
 			c,

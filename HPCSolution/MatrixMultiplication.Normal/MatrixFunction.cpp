@@ -10,7 +10,7 @@ const int get_matrix_index(
 	return row * matrix_cols + col;
 }
 
-void transpose_s(
+void transpose(
 	float* matrix,
 	const int matrix_size
 )
