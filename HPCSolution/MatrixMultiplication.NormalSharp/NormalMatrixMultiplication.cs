@@ -258,7 +258,7 @@ namespace MatrixMultiplication.NormalSharp
         public static void Transpose1d(float[] a, int n)
         {
             for (int i = 0; i < n; ++i)
-            for (int j = 0; i < n; ++i)
+            for (int j = i + 1; j < n; ++j)
             {
                 var tmp = a[i * n + j];
                 a[i * n + j] = a[j * n + i];
@@ -269,7 +269,7 @@ namespace MatrixMultiplication.NormalSharp
         public static void Transpose2d(float[,] a, int n)
         {
             for (int i = 0; i < n; ++i)
-            for (int j = 0; i < n; ++i)
+            for (int j = i + 1; j < n; ++j)
             {
                 var tmp = a[i, j];
                 a[i, j] = a[j, i];
@@ -280,7 +280,7 @@ namespace MatrixMultiplication.NormalSharp
         public static void TransposeJagged(float[][] a, int n)
         {
             for (int i = 0; i < n; ++i)
-            for (int j = 0; i < n; ++i)
+            for (int j = i + 1; j < n; ++j)
             {
                 var tmp = a[i][j];
                 a[i][j] = a[j][i];

@@ -3,12 +3,13 @@
 #include <vector>
 #include <chrono>
 #include <cassert>
+#include <cmath>
 
 
 void transpose(float* a, int n)
 {
 	for (int i = 0; i < n; ++i)
-		for (int j = 0; i < n; ++i)
+		for (int j = i + 1; j < n; ++j)
 		{
 			std::swap(
 				a[i * n + j],
@@ -109,6 +110,25 @@ void scalar_not_transposed(float* a, float* b, float* c, int n)
 		}
 }
 
+void parallel_simd_openmp(float* a, float* b, float* c, int n)
+{
+	transpose(b, n);
+
+#pragma omp parallel for
+	for (int i = 0; i < n; ++i)
+		for (int j = 0; j < n; ++j)
+		{
+			float tmp = 0.0f;
+
+#pragma omp simd
+			for (int k = 0; k < n; ++k)
+				tmp += a[i * n + k] * b[j * n + k];
+			c[i * n + j] = tmp;
+		}
+
+	transpose(b, n);
+}
+
 void assert_identity(float* a, int n)
 {
 	for (int i = 0; i < n; ++i)
@@ -133,7 +153,7 @@ auto measure(F f)
 
 int main(int argc, char* argv[])
 {
-	const auto N = 500;
+	const auto N = 2000;
 
 	std::vector<float> a;
 	a.resize(N * N, 0.0f);
@@ -148,24 +168,26 @@ int main(int argc, char* argv[])
 		for (int j = 0; j < N; j++)
 			b[i * N + j] = i == j ? 1.0f : 0.0f;
 
-
 	std::vector<float> c;
 	c.resize(N * N, 1.0f);
 
 	const auto t1 = measure([&]() { scalar(a.data(), b.data(), c.data(), N); });
 	assert_identity(c.data(), N);
-
+	std::cout << "normal c++: " << t1 << "ms\n";
+	
 	const auto t2 = measure([&]() { vectorized_avx2(a.data(), b.data(), c.data(), N); });
 	assert_identity(c.data(), N);
-
+	std::cout << "avx2 c++: " << t2 << "ms\n";
+	
 	const auto t3 = measure([&]() { scalar_not_transposed(a.data(), b.data(), c.data(), N); });
 	assert_identity(c.data(), N);
-
+	std::cout << "not transposed c++: " << t3 << "ms\n";
+	
 	const auto t4 = measure([&]() { vectorized_sse(a.data(), b.data(), c.data(), N); });
 	assert_identity(c.data(), N);
-
-	std::cout << "normal c++: " << t1 << "ms\n";
-	std::cout << "avx2 c++: " << t2 << "ms\n";
-	std::cout << "not transposed c++: " << t3 << "ms\n";
 	std::cout << "sse c++: " << t4 << "ms\n";
+
+	const auto t5 = measure([&]() { parallel_simd_openmp(a.data(), b.data(), c.data(), N); });
+	assert_identity(c.data(), N);
+	std::cout << "simd+parallel c++: " << t5 << "ms\n";
 }
