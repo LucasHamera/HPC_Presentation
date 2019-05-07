@@ -124,7 +124,7 @@ namespace MatrixMultiplication.NormalWrapper
             }
         }
 
-        public static unsafe void Multiply1dParallelthirdFor(
+        public static unsafe void Multiply1dParallelThirdFor(
             float[] firstMatrix,
             float[] secondMatrix,
             float[] outMatrix,
