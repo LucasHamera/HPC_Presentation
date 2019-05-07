@@ -61,6 +61,10 @@ namespace Benchmarks
                 NormalMatrixMultiplication.MultiplyJagged(aj, bj, cj, n);
                 Console.WriteLine($"normal jagged: {s3n.Elapsed.TotalSeconds}s");
 
+                var s4n = Stopwatch.StartNew();
+                NormalMatrixMultiplication.Multiply1dParallel(a, b, c, n);
+                Console.WriteLine($"normal 1d parallel: {s4n.Elapsed.TotalSeconds}s");
+
                 Console.WriteLine();
 
                 Console.WriteLine($"n={n} transposed");
@@ -76,6 +80,11 @@ namespace Benchmarks
                 NormalMatrixMultiplication.MultiplyJaggedWithTranspose(aj, bj, cj, n);
                 Console.WriteLine($"normal jagged: {s3.Elapsed.TotalSeconds}s");
 
+                var s4 = Stopwatch.StartNew();
+                NormalMatrixMultiplication.Multiply1dWithTransposeAndParallel(a, b, c, n);
+                Console.WriteLine($"normal 1d parallel: {s4.Elapsed.TotalSeconds}s");
+
+
                 Console.WriteLine();
 
                 Console.WriteLine($"n={n} transposed + unrolled");
@@ -90,6 +99,13 @@ namespace Benchmarks
                 var s3u = Stopwatch.StartNew();
                 NormalMatrixMultiplication.MultiplyJaggedWithTransposeAndUnrolled(aj, bj, cj, n);
                 Console.WriteLine($"normal jagged: {s3u.Elapsed.TotalSeconds}s");
+                Console.WriteLine();
+
+                Console.WriteLine($"n={n} transposed + unrolled + parallel");
+
+                var s5 = Stopwatch.StartNew();
+                NormalMatrixMultiplication.Multiply1dWithTransposeAndUnrolledAndParallel(a, b, c, n);
+                Console.WriteLine($"normal 1d: {s5.Elapsed.TotalSeconds}s");
 
                 Console.WriteLine();
                 Console.WriteLine();

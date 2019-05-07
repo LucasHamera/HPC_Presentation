@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace MatrixMultiplication.NormalSharp
 {
@@ -18,6 +19,20 @@ namespace MatrixMultiplication.NormalSharp
             }
         }
 
+        public static void Multiply1dParallel(float[] a, float[] b, float[] c, int n)
+        {
+            Parallel.For(0, n, i =>
+            {
+                for (int j = 0; j < n; ++j)
+                {
+                    var tmp = 0.0f;
+                    for (int k = 0; k < n; ++k)
+                        tmp += a[i * n + k] * b[k * n + j];
+                    c[i * n + j] = tmp;
+                }
+            });
+        }
+
         public static void Multiply1dWithTranspose(float[] a, float[] b, float[] c, int n)
         {
             Transpose1d(b, n);
@@ -30,6 +45,24 @@ namespace MatrixMultiplication.NormalSharp
                     tmp += a[i * n + k] * b[j * n + k];
                 c[i * n + j] = tmp;
             }
+
+            Transpose1d(b, n);
+        }
+
+        public static void Multiply1dWithTransposeAndParallel(float[] a, float[] b, float[] c, int n)
+        {
+            Transpose1d(b, n);
+
+            Parallel.For(0, n, i =>
+            {
+                for (int j = 0; j < n; ++j)
+                {
+                    var tmp = 0.0f;
+                    for (int k = 0; k < n; ++k)
+                        tmp += a[i * n + k] * b[j * n + k];
+                    c[i * n + j] = tmp;
+                }
+            });
 
             Transpose1d(b, n);
         }
@@ -66,6 +99,44 @@ namespace MatrixMultiplication.NormalSharp
 
                 c[i * n + j] = tmp;
             }
+
+            Transpose1d(b, n);
+        }
+
+        public static void Multiply1dWithTransposeAndUnrolledAndParallel(float[] a, float[] b, float[] c, int n)
+        {
+            Transpose1d(b, n);
+
+            Parallel.For(0, n, i =>
+            {
+                for (int j = 0; j < n; ++j)
+                {
+                    var tmp = 0.0f;
+
+                    int k = 0;
+                    while (k + 3 < n)
+                    {
+                        var s = 0.0f;
+
+                        s += a[i * n + k + 0] * b[j * n + k + 0];
+                        s += a[i * n + k + 1] * b[j * n + k + 1];
+                        s += a[i * n + k + 2] * b[j * n + k + 2];
+                        s += a[i * n + k + 3] * b[j * n + k + 3];
+                        //                    s += a[i * n + k + 4] * b[j * n + k + 4];
+                        //                    s += a[i * n + k + 5] * b[j * n + k + 5];
+                        //                    s += a[i * n + k + 6] * b[j * n + k + 6];
+                        //                    s += a[i * n + k + 7] * b[j * n + k + 7];
+
+                        tmp += s;
+                        k += 4;
+                    }
+
+                    for (; k < n; ++k)
+                        tmp += a[i * n + k] * b[j * n + k];
+
+                    c[i * n + j] = tmp;
+                }
+            });
 
             Transpose1d(b, n);
         }
