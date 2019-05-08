@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.0</TargetFramework>
@@ -13,7 +13,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Update="MatrixMultiplication.SIMD.dll">
+    <None Update="MatrixMultiplication.CUDA.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
