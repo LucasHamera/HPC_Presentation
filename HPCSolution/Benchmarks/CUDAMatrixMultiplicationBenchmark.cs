@@ -41,11 +41,7 @@ namespace Benchmarks
     public class CUDAMatrixMultiplicationBenchmark
     {
         [Params(
-            10,
-            100, 
-            250,
-            500,
-            1000
+            10_000
         )]
         public int MatrixSize { get; set; }
 
