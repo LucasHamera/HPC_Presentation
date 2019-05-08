@@ -1,6 +1,5 @@
 ﻿using BenchmarkDotNet.Running;
 using System;
-using CacheBench;
 
 namespace Benchmarks
 {
@@ -8,7 +7,7 @@ namespace Benchmarks
     {
         static void Main(string[] args)
         {
-            var summary = BenchmarkRunner.Run<LinqBench>();
+            var summary = BenchmarkRunner.Run<FinalizerBenchmark>();
 
             Console.ReadKey();
 
