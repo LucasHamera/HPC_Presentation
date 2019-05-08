@@ -25,6 +25,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MatrixMultiplication.CUDA.W
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParallelBenchmark", "ParallelBenchmark\ParallelBenchmark.csproj", "{525ED958-6D4A-4C75-97CC-C4A61D04C364}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CacheBench", "CacheBench\CacheBench.csproj", "{EC644DE0-7C12-44F5-818B-F394DCA6D235}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -127,6 +129,18 @@ Global
 		{F07754B6-DE1F-41E3-9E57-C2D8F8D6F43D}.Release|x64.Build.0 = Release|Any CPU
 		{F07754B6-DE1F-41E3-9E57-C2D8F8D6F43D}.Release|x86.ActiveCfg = Release|Any CPU
 		{F07754B6-DE1F-41E3-9E57-C2D8F8D6F43D}.Release|x86.Build.0 = Release|Any CPU
+		{EC644DE0-7C12-44F5-818B-F394DCA6D235}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC644DE0-7C12-44F5-818B-F394DCA6D235}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC644DE0-7C12-44F5-818B-F394DCA6D235}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{EC644DE0-7C12-44F5-818B-F394DCA6D235}.Debug|x64.Build.0 = Debug|Any CPU
+		{EC644DE0-7C12-44F5-818B-F394DCA6D235}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{EC644DE0-7C12-44F5-818B-F394DCA6D235}.Debug|x86.Build.0 = Debug|Any CPU
+		{EC644DE0-7C12-44F5-818B-F394DCA6D235}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC644DE0-7C12-44F5-818B-F394DCA6D235}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EC644DE0-7C12-44F5-818B-F394DCA6D235}.Release|x64.ActiveCfg = Release|Any CPU
+		{EC644DE0-7C12-44F5-818B-F394DCA6D235}.Release|x64.Build.0 = Release|Any CPU
+		{EC644DE0-7C12-44F5-818B-F394DCA6D235}.Release|x86.ActiveCfg = Release|Any CPU
+		{EC644DE0-7C12-44F5-818B-F394DCA6D235}.Release|x86.Build.0 = Release|Any CPU
 		{EC781494-5737-40A0-A9DE-DC711FBBC7B5}.Debug|Any CPU.ActiveCfg = Debug|x64
 		{EC781494-5737-40A0-A9DE-DC711FBBC7B5}.Debug|x64.ActiveCfg = Debug|x64
 		{EC781494-5737-40A0-A9DE-DC711FBBC7B5}.Debug|x64.Build.0 = Debug|x64
