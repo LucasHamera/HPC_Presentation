@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BenchmarkDotNet.Running;
+using System;
 
 namespace Benchmarks
 {
@@ -6,7 +7,11 @@ namespace Benchmarks
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            var summary = BenchmarkRunner.Run<SIMDMatrixMultiplicationBenchmark>();
+
+            Console.ReadKey();
+
+            Console.ReadLine();
         }
     }
 }
