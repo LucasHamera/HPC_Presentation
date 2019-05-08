@@ -90,7 +90,7 @@ namespace MatrixMultiplication.Vector
                         while (k + (vectorCount - 1) < matrixSize)
                         {
                             var x = new Vector<float>(firstMatrix, GetMatrixIndex(i, k, matrixSize));
-                            var y = new Vector<float>(firstMatrix, GetMatrixIndex(j, k, matrixSize));
+                            var y = new Vector<float>(secondMatrix, GetMatrixIndex(j, k, matrixSize));
                             sum += x * y;
 
                             k += vectorCount;
