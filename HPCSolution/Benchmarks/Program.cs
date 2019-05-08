@@ -8,7 +8,7 @@ namespace Benchmarks
     {
         static void Main(string[] args)
         {
-            var summary = BenchmarkRunner.Run<BigVsSmallStruct>();
+            var summary = BenchmarkRunner.Run<ParallelMatrixMultiplicationBenchmark>();
 
             Console.ReadKey();
 

@@ -41,6 +41,7 @@ namespace Benchmarks
     //|      Multiply1dWithTransposeAndUnrolledAndParallelDLL |       1000 |   115,897.949 us |  2,299.4082 us |  4,949.7187 us |
 
 #endregion
+
     public class ParallelMatrixMultiplicationBenchmark
     {
         [Params(
