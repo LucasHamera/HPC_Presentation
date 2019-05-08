@@ -98,13 +98,13 @@ namespace Benchmarks
                 );
         }
 
-        [Benchmark]
-        public float MyarallelFor()
-        {
-            return ParallelSum
-                .MyarallelFor(
-                    Array
-                );
-        }
+        //[Benchmark]
+        //public float MyarallelFor()
+        //{
+        //    return ParallelSum
+        //        .MyarallelFor(
+        //            Array
+        //        );
+        //}
     }
 }

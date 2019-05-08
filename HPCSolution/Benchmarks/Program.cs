@@ -7,7 +7,7 @@ namespace Benchmarks
     {
         static void Main(string[] args)
         {
-            var summary = BenchmarkRunner.Run<ParallelForSumBenchmark>();
+            var summary = BenchmarkRunner.Run<FinalizerBenchmark>();
 
             Console.ReadKey();
 
