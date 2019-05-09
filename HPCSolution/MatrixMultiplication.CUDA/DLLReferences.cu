@@ -100,7 +100,7 @@ int alocate_1d_r(
 	return 0;
 }
 
-int DLLIMPORT free_1d_r(
+int free_1d_r(
 	float* a
 )
 {
