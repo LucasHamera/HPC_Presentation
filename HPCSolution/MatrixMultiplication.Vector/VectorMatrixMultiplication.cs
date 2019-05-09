@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 
 namespace MatrixMultiplication.Vector
 {
-    public static class VectorMatrixMultiplication
+    public class VectorMatrixMultiplication
     {
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         private static int GetMatrixIndex(

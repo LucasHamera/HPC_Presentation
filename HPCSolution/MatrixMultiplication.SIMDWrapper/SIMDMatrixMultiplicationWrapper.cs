@@ -2,7 +2,7 @@
 
 namespace MatrixMultiplication.SIMDWrapper
 {
-    public static class SIMDMatrixMultiplicationWrapper
+    public class SIMDMatrixMultiplicationWrapper
     {
         public static unsafe void Multiply1dWithVectorizedSSE(
             float[] firstMatrix,

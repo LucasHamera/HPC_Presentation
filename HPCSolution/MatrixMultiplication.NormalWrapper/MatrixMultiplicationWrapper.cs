@@ -2,7 +2,7 @@
 
 namespace MatrixMultiplication.NormalWrapper
 {
-    public static class MatrixMultiplicationWrapper
+    public class MatrixMultiplicationWrapper
     {
         public static unsafe void Multiply1d(
             float[] firstMatrix,
