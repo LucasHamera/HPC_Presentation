@@ -100,6 +100,24 @@ int alocate_1d_r(
 	return 0;
 }
 
+int DLLIMPORT free_1d_r(
+	float* a
+)
+{
+	if (a == nullptr)
+		return 1;
+
+	const auto result = free_1d(
+		a
+	);
+
+	if(result != 0)
+		return result;
+
+
+	return 0;
+}
+
 int set_identity_1d_r(
 	float* a,
 	const int matrix_size

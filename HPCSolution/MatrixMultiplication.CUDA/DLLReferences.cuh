@@ -25,6 +25,10 @@ extern "C" {
 		const int matrix_size
 	);
 
+	int DLLIMPORT free_1d_r(
+		float* a
+	);
+
 	int DLLIMPORT set_identity_1d_r(
 		float* a, 
 		const int matrix_size

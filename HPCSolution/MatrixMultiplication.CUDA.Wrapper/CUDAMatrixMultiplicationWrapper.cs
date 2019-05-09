@@ -80,6 +80,19 @@ namespace MatrixMultiplication.CUDA.Wrapper
             return matrixPtr;
         }
 
+        public static void FreeMatrix(
+            IntPtr matrix
+        )
+        {
+            var result = NativeFunctions
+                .free_1d_r(
+                    matrix
+                );
+
+            if(result != 0)
+                throw new Exception("Cannot allocate");
+        }
+
         public static void Multiply1dWithoutCopy(
             IntPtr firstMatrix,
             IntPtr secondMatrix,

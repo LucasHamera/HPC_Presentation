@@ -290,6 +290,14 @@ __global__ void set_identity_kernel(
 		return static_cast<int>(cudaStatus);
 	}
 
+	int free_1d(
+		float * a
+	)
+	{
+		cudaFree(a);
+		return 0;
+	}
+
 	void set_identity_1d(
 		float * a, 
 		const int matrix_size

@@ -21,6 +21,10 @@
 		const int matrix_size
 	);
 
+	int free_1d(
+		float* a
+	);
+
 	void set_identity_1d(
 		float* a, 
 		const int matrix_size

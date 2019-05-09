@@ -41,7 +41,11 @@ namespace Benchmarks
     public class CUDAMatrixMultiplicationBenchmark
     {
         [Params(
-            10_000
+            10,
+            100, 
+            250,
+            500,
+            1000
         )]
         public int MatrixSize { get; set; }
 
@@ -85,7 +89,22 @@ namespace Benchmarks
                 );
         }
 
-
+        [GlobalCleanup]
+        public void Cleanup()
+        {
+            CUDAMatrixMultiplicationWrapper
+                .FreeMatrix(
+                    A_CUDA
+                );
+            CUDAMatrixMultiplicationWrapper
+                .FreeMatrix(
+                    B_CUDA
+                );
+            CUDAMatrixMultiplicationWrapper
+                .FreeMatrix(
+                    C_CUDA
+                );
+        }
 
         [Benchmark]
         public void OpenMPParallel()

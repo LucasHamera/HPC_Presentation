@@ -32,6 +32,11 @@ namespace MatrixMultiplication.CUDA.Wrapper
         );
 
         [DllImport(DLLName, CallingConvention = CallingConvention.Winapi)]
+        public static extern int free_1d_r(
+            IntPtr a
+        );
+
+        [DllImport(DLLName, CallingConvention = CallingConvention.Winapi)]
         public static extern int set_identity_1d_r(
             IntPtr a,
             int matrix_size
