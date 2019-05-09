@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using MatrixMultiplication.CUDA.Wrapper;
 using MatrixMultiplication.NormalSharp;
 using MatrixMultiplication.NormalWrapper;
 using MatrixMultiplication.SIMDWrapper;
@@ -61,7 +62,8 @@ namespace MatrixMultiplicationVerifier
             var methods = FindMultiplicationMethods<NormalMatrixMultiplication>()
                 .Concat(FindMultiplicationMethods<SIMDMatrixMultiplicationWrapper>())
                 .Concat(FindMultiplicationMethods<MatrixMultiplicationWrapper>())
-                .Concat(FindMultiplicationMethods<VectorMatrixMultiplication>());
+                .Concat(FindMultiplicationMethods<VectorMatrixMultiplication>())
+                .Concat(FindMultiplicationMethods<CUDAMatrixMultiplicationWrapper>());
 
             foreach (var (name, matrixType, function) in methods)
             {
@@ -112,6 +114,8 @@ namespace MatrixMultiplicationVerifier
                 if (isOk)
                     Console.WriteLine($"{name}: ok");
             }
+            
+            Console.ReadKey();
         }
 
         private static IEnumerable<(string, Type, Action<object, object, object, int>)> FindMultiplicationMethods<T>()
@@ -136,6 +140,7 @@ namespace MatrixMultiplicationVerifier
                     (a, b, c, size) => method.Invoke(null, new[] {a, b, c, size})
                 );
             }
+
         }
     }
 }

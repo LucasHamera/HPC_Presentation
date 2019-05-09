@@ -6,6 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\MatrixMultiplication.CUDA.Wrapper\MatrixMultiplication.CUDA.Wrapper.csproj" />
     <ProjectReference Include="..\MatrixMultiplication.NormalSharp\MatrixMultiplication.NormalSharp.csproj" />
     <ProjectReference Include="..\MatrixMultiplication.NormalWrapper\MatrixMultiplication.NormalWrapper.csproj" />
     <ProjectReference Include="..\MatrixMultiplication.SIMDWrapper\MatrixMultiplication.SIMDWrapper.csproj" />

@@ -124,30 +124,6 @@ namespace MatrixMultiplication.NormalWrapper
             }
         }
 
-        public static unsafe void Multiply1dParallelThirdFor(
-            float[] firstMatrix,
-            float[] secondMatrix,
-            float[] outMatrix,
-            int matrixSize
-        )
-        {
-            fixed(float* firstMatrixPtr = firstMatrix)
-            fixed(float* secondMatrixPtr = secondMatrix)
-            fixed (float* outMatrixPtr = outMatrix)
-            {
-                var result = NativeFunctions
-                    .parallel_t_for_multipy_1d_r(
-                        firstMatrixPtr,
-                        secondMatrixPtr,
-                        outMatrixPtr,
-                        matrixSize
-                    );
-
-                if(result != 0)
-                    throw new Exception("Cannot multiply");
-            }
-        }
-
         public static unsafe void Multiply1dWithTransposeAndParallel(
             float[] firstMatrix,
             float[] secondMatrix,

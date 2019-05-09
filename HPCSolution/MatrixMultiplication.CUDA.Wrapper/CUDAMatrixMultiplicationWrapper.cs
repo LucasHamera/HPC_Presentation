@@ -2,7 +2,7 @@
 
 namespace MatrixMultiplication.CUDA.Wrapper
 {
-    public static class CUDAMatrixMultiplicationWrapper
+    public class CUDAMatrixMultiplicationWrapper
     {
         public static unsafe void Multiply1d(
             float[] firstMatrix,

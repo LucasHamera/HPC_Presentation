@@ -123,18 +123,6 @@ namespace Benchmarks
         }
 
         [Benchmark]
-        public void Multiply1dDLLThirdForDLL()
-        {
-            MatrixMultiplicationWrapper
-                .Multiply1dParallelThirdFor(
-                    A,
-                    B,
-                    C,
-                    MatrixSize
-                );
-        }
-
-        [Benchmark]
         public void Multiply1dWithTransposeAndUnrolledAndParallelDLL()
         {
             MatrixMultiplicationWrapper

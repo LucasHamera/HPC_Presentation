@@ -37,7 +37,6 @@ namespace MatrixMultiplication.Vector
         {
             Transpose1d(secondMatrix, matrixSize);
 
-            var vectorCount = System.Numerics.Vector<float>.Count;
 
             for (int i = 0; i < matrixSize; ++i)
             for (int j = 0; j < matrixSize; ++j)
@@ -45,17 +44,30 @@ namespace MatrixMultiplication.Vector
                 float tmp = 0.0f;
 
                 int k = 0;
-                var sum = Vector<float>.One;
-                while (k + (vectorCount - 1) < matrixSize)
+                var sum = Vector4.Zero;
+                while (k + 3 < matrixSize)
                 {
-                    var x = new Vector<float>(firstMatrix,GetMatrixIndex(i, k, matrixSize));
-                    var y = new Vector<float>(secondMatrix,GetMatrixIndex(j, k, matrixSize));
+                    var xIndex = GetMatrixIndex(i, k, matrixSize);
+                    var yIndex = GetMatrixIndex(j, k, matrixSize);
+                    var x = new Vector4(
+                        firstMatrix[xIndex],
+                        firstMatrix[xIndex + 1],
+                        firstMatrix[xIndex + 2],
+                        firstMatrix[xIndex + 3]
+                        );
+
+                    var y = new Vector4(                       
+                        secondMatrix[yIndex],
+                        secondMatrix[yIndex + 1],
+                        secondMatrix[yIndex + 2],
+                        secondMatrix[yIndex + 3]
+                        );
                     sum += x * y;
 
-                    k += vectorCount;
+                    k += 4;
                 }
 
-                tmp = System.Numerics.Vector.Dot(sum, Vector<float>.One);
+                tmp = System.Numerics.Vector4.Dot(sum, Vector4.One);
 
                 for (; k < matrixSize; ++k)
                     tmp += firstMatrix[GetMatrixIndex(i, k, matrixSize)] * secondMatrix[GetMatrixIndex(j, k, matrixSize)];
@@ -74,7 +86,7 @@ namespace MatrixMultiplication.Vector
         {
             Transpose1d(secondMatrix, matrixSize);
             
-            var vectorCount = System.Numerics.Vector<float>.Count;
+            var vectorCount = Vector<float>.Count;
 
             Parallel.For(
                 0,
@@ -86,21 +98,33 @@ namespace MatrixMultiplication.Vector
                         float tmp = 0.0f;
 
                         int k = 0;
-                        var sum = Vector<float>.One;
-                        while (k + (vectorCount - 1) < matrixSize)
+                        var sum = Vector4.Zero;
+                        while (k + 3 < matrixSize)
                         {
-                            var x = new Vector<float>(firstMatrix, GetMatrixIndex(i, k, matrixSize));
-                            var y = new Vector<float>(secondMatrix, GetMatrixIndex(j, k, matrixSize));
+                            var xIndex = GetMatrixIndex(i, k, matrixSize);
+                            var yIndex = GetMatrixIndex(j, k, matrixSize);
+                            var x = new Vector4(
+                                firstMatrix[xIndex],
+                                firstMatrix[xIndex + 1],
+                                firstMatrix[xIndex + 2],
+                                firstMatrix[xIndex + 3]
+                            );
+
+                            var y = new Vector4(                       
+                                secondMatrix[yIndex],
+                                secondMatrix[yIndex + 1],
+                                secondMatrix[yIndex + 2],
+                                secondMatrix[yIndex + 3]
+                            );
                             sum += x * y;
 
-                            k += vectorCount;
+                            k += 4;
                         }
 
-                        tmp = System.Numerics.Vector.Dot(sum, Vector<float>.One);
+                        tmp = System.Numerics.Vector4.Dot(sum, Vector4.One);
 
                         for (; k < matrixSize; ++k)
-                            tmp += firstMatrix[GetMatrixIndex(i, k, matrixSize)] *
-                                   secondMatrix[GetMatrixIndex(j, k, matrixSize)];
+                            tmp += firstMatrix[GetMatrixIndex(i, k, matrixSize)] * secondMatrix[GetMatrixIndex(j, k, matrixSize)];
                         outMatrix[GetMatrixIndex(i, j, matrixSize)] = tmp;
                     }
                 }

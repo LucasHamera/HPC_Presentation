@@ -47,14 +47,6 @@ namespace MatrixMultiplication.NormalWrapper
         );
 
         [DllImport(DLLName, CallingConvention = CallingConvention.Winapi)]
-        public static extern unsafe int parallel_t_for_multipy_1d_r(
-            float* a,
-            float* b,
-            float* c,
-            int matrix_size
-        );
-
-        [DllImport(DLLName, CallingConvention = CallingConvention.Winapi)]
         public static extern unsafe int parallel_multipy_1d_with_transpose_r(
             float* a,
             float* b,
