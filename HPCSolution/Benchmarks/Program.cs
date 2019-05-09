@@ -7,7 +7,7 @@ namespace Benchmarks
     {
         static void Main(string[] args)
         {
-            var summary = BenchmarkRunner.Run<SIMDMatrixMultiplicationBenchmark>();
+            var summary = BenchmarkRunner.Run<CUDAMatrixMultiplicationBenchmark>();
 
             Console.ReadKey();
 

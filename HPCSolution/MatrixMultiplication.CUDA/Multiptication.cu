@@ -11,12 +11,12 @@ const int BLOCK_SIZE = 16;
 
 __global__ void gpu_square_matrix_mult(float *d_a, float *d_b, float *d_result, int n) 
 {
-    __shared__ int tile_a[BLOCK_SIZE][BLOCK_SIZE];
-    __shared__ int tile_b[BLOCK_SIZE][BLOCK_SIZE];
+    __shared__ float tile_a[BLOCK_SIZE][BLOCK_SIZE];
+    __shared__ float tile_b[BLOCK_SIZE][BLOCK_SIZE];
 
     int row = blockIdx.y * BLOCK_SIZE + threadIdx.y;
     int col = blockIdx.x * BLOCK_SIZE + threadIdx.x;
-    int tmp = 0;
+    float tmp = 0;
     int idx;
 
     for (int sub = 0; sub < gridDim.x; ++sub) 
@@ -60,7 +60,7 @@ __global__ void gpu_matrix_mult(float *a,float *b, float *c, int m, int n, int k
 { 
     int row = blockIdx.y * blockDim.y + threadIdx.y; 
     int col = blockIdx.x * blockDim.x + threadIdx.x;
-    int sum = 0;
+    float sum = 0;
     if( col < k && row < m) 
     {
         for(int i = 0; i < n; i++) 

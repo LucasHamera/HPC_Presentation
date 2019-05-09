@@ -27,7 +27,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ParallelBenchmark", "Parall
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CacheBench", "CacheBench\CacheBench.csproj", "{EC644DE0-7C12-44F5-818B-F394DCA6D235}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MatrixMultiplicationVerifier", "MatrixMultiplicationVerifier\MatrixMultiplicationVerifier.csproj", "{B4E86093-DE32-4B30-91E2-0FD6AF285578}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MatrixMultiplicationVerifier", "MatrixMultiplicationVerifier\MatrixMultiplicationVerifier.csproj", "{B4E86093-DE32-4B30-91E2-0FD6AF285578}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MatrixMultiplication.AleaGPU", "MatrixMultiplication.AleaGPU\MatrixMultiplication.AleaGPU.csproj", "{8C4A91FB-586C-4206-8C5B-C347A3A02265}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -187,6 +189,18 @@ Global
 		{B4E86093-DE32-4B30-91E2-0FD6AF285578}.Release|x64.Build.0 = Release|Any CPU
 		{B4E86093-DE32-4B30-91E2-0FD6AF285578}.Release|x86.ActiveCfg = Release|Any CPU
 		{B4E86093-DE32-4B30-91E2-0FD6AF285578}.Release|x86.Build.0 = Release|Any CPU
+		{8C4A91FB-586C-4206-8C5B-C347A3A02265}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C4A91FB-586C-4206-8C5B-C347A3A02265}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C4A91FB-586C-4206-8C5B-C347A3A02265}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{8C4A91FB-586C-4206-8C5B-C347A3A02265}.Debug|x64.Build.0 = Debug|Any CPU
+		{8C4A91FB-586C-4206-8C5B-C347A3A02265}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{8C4A91FB-586C-4206-8C5B-C347A3A02265}.Debug|x86.Build.0 = Debug|Any CPU
+		{8C4A91FB-586C-4206-8C5B-C347A3A02265}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C4A91FB-586C-4206-8C5B-C347A3A02265}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8C4A91FB-586C-4206-8C5B-C347A3A02265}.Release|x64.ActiveCfg = Release|Any CPU
+		{8C4A91FB-586C-4206-8C5B-C347A3A02265}.Release|x64.Build.0 = Release|Any CPU
+		{8C4A91FB-586C-4206-8C5B-C347A3A02265}.Release|x86.ActiveCfg = Release|Any CPU
+		{8C4A91FB-586C-4206-8C5B-C347A3A02265}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
